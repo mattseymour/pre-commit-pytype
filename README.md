@@ -1,4 +1,4 @@
-# pre-commit-pytype
+# pre-commit for pytype
 Wrapper to enable pre-commit for pytypes
 
 ## Usage:
