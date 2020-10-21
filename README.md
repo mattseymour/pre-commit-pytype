@@ -6,7 +6,7 @@ In your `.pre-commit-config.yaml` include the following block.
 
 ```
 -   repo: https://github.com/mattseymour/pre-commit-pytype
-    rev: '2019.05.31'
+    rev: '2020.10.8'
     hooks:
     -   id: pytype
 ```
@@ -15,7 +15,7 @@ If you use `setup.cfg` instead of `-config=pytype.cfg` to run pytype then you wi
 
 ```
 -   repo: https://github.com/mattseymour/pre-commit-pytype
-    rev: '2019.05.31'
+    rev: '2020.10.8'
     hooks:
     -   id: pytype
         args: []
