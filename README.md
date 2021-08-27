@@ -1,21 +1,21 @@
 # pre-commit for pytype
-Wrapper to enable pre-commit for pytypes
+Wrapper to enable pre-commit for `pytype`
 
 ## Usage:
 In your `.pre-commit-config.yaml` include the following block.
 
 ```
 -   repo: https://github.com/mattseymour/pre-commit-pytype
-    rev: '2020.10.8'
+    rev: 2021.8.24
     hooks:
     -   id: pytype
 ```
 
-If you use `setup.cfg` instead of `-config=pytype.cfg` to run pytype then you will also need to include a empty args attribute in the pytype hook (exmple below).
+If you use `setup.cfg` instead of `--config=pytype.cfg` to run pytype then you will also need to include a empty args attribute in the pytype hook (example below).
 
 ```
 -   repo: https://github.com/mattseymour/pre-commit-pytype
-    rev: '2020.10.8'
+    rev: 2021.8.24
     hooks:
     -   id: pytype
         args: []
