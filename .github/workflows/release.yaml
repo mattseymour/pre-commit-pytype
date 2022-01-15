@@ -1,0 +1,26 @@
+name: Release
+on:
+  pull_request:
+    paths:
+    - 'setup.py'
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Read old version
+        run: echo "OLD_VERSION=$(cat .version)" >> $GITHUB_ENV
+      - name: Read new version
+        run: |
+          pip install --editable .
+          run: python -c 'from importlib.metadata import version; print("NEW_VERSION=" + version("pytype"))' >> $GITHUB_ENV
+      - name: Apply new version
+        run: |
+          echo ${{ env.NEW_VERSION }} > .version
+          sed -i '' 's/${{ env.OLD_VERSION }}/${{ env.NEW_VERSION }}/g' README.md
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          default_author: github_actions
+          message: 'post-process pytype version bump'
+          add: '.version README.md'
